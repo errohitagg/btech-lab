@@ -1,0 +1,37 @@
+domains
+A,B=symbol
+predicates
+distance(symbol,symbol,integer)
+route(symbol,symbol,integer)
+start
+clauses
+distance("Delhi","Lucknow",100).
+distance("Lucknow","Calcutta",103).
+distance("Calcutta","Chennai",200).
+distance("Delhi","Indore",130).
+distance("Indore","Hyderabad",90).
+distance("Hyderabad","Chennai",100).
+distance("Delhi","Jaipur",90).
+distance("Jaipur","Mumbai",137).
+distance("Mumbai","Bangalore",135).
+distance("Bangalore","Chennai",200).
+start:-
+distance(A,B,D),
+write("City = ",A," City = ",B,"  Distance = ",D),nl,fail.
+start:-
+write("\nEnter the starting city : "),
+readln(A),
+write("\nEnter the destination city = "),
+readln(B),nl,
+route(A,B,D),
+write("\nDistance from ",A," to ",B," = ",D),nl.
+route(A,B,D):-
+distance(A,B,D),
+write("From City = ",A," To City = ",B,", Distance = ",D),nl.
+route(A,B,D):-
+distance(A,C,D1),
+write("From City = ",A," To City = ",C,", Distance = ",D1),nl,
+route(C,B,D2),
+D=D1+D2.
+goal
+start.

@@ -1,0 +1,23 @@
+<!--					Webapage  No. : 
+Aim : Design a Webpage to set an Image Map on an Image using 
+      different shapes.
+-->
+<html>
+<head>
+<title>Webpage 12</title>
+</head>
+<body>
+<h1 align="Center">The following figure has four Image Maps</h1>
+<br><br>
+<img src="The Car.jpg" height=200 width=200 usemap="#Sample">
+<map name="Sample">
+<area shape="circle" coords="50,50,50" href="Webpage 12(C).html">
+<area shape="rect" coords="100,0,200,100" href="Webpage 12(R).html">
+<area shape="poly" coords="10,140,100,100,180,175" href="Webpage 12(P).html">
+<area shape="rect" coords="0,0,200,200" href="Webpage 12(D).html">
+</body>
+</html>
+<!--
+Name : Rohit Aggarwal
+Roll No. : 7CS-097
+-->

@@ -1,0 +1,18 @@
+<!--					Webpage No. :
+Aim : Design a Webpage to set an image for the background and color
+      for the text on the whole page.
+-->
+<html>
+<head>
+<title>Webpage 10</title>
+</head>
+<body background="The Car.jpg" text="Yellow">
+<br><br><br><br><br>
+<h1><b><i>This is an image placed in the background and the text has 
+been written over it in Yellow color.</i></b></h1>
+</body>
+</html>
+<!--
+Name : Rohit Aggarwal
+Roll No. : 7CS-097
+-->

@@ -1,0 +1,30 @@
+<!--					Webpage No. :
+Aim : Design a Webpage to calculate Factorial of given Number using 
+      function using  Java Script.
+-->
+<html>
+<head>
+<title>Webpage 23</title>
+<script language="Javascript">
+var ans=1,i,no;
+function func()
+ {
+  no=prompt("Enter the number whose factorial is to be found : ");
+  if(no==0||no==1)
+   document.write("<h2>Factorial = 1</h2>");
+  else
+   {
+    for(i=no;i>1;i--)
+     ans=ans*i;
+    document.write("<h2>Factorial = "+ans+"</h2>");
+   }
+ }
+</script>
+</head>
+<body onload=func()>
+</body>
+</html>
+<!--
+Name : Rohit Aggarwal
+Roll No. : 7CS-097
+-->

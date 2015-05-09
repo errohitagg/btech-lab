@@ -1,0 +1,21 @@
+<!--					Webpage No. :
+Aim : Design a Webpage to show the working of text Hyper-Linking with
+      same document and another document.
+-->
+<html>
+<head>
+<title>Webpage 09(2)</title>
+</head>
+<body>
+<font face="Times New Roman" size=5>
+<b>Linked to Another Document</b>
+</font></a>
+<br><br>
+<h4 align="Center">
+<a href="Webpage 09.html">Back to the Main Page</a>
+</body>
+</html>
+<!--
+Name : Rohit Aggarwal
+Roll no. : 7CS-097
+-->

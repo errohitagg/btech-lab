@@ -1,0 +1,27 @@
+<!--					Webpage No. :
+Aim : Design a webpage to show all physical styles of Text.
+-->
+<html>
+<head>
+<title>Webpage 02</title>
+</head>
+<body>
+<h2>HTML has few tags for controlling the appearance and flow of text. The following tags control the 
+appearance the text they contain. They should be used within document such as paragraph or tables.</h2><br><br>
+<font size=4>
+Text displayed in <b>BOLD</b>.<br>
+Text displayed in <i>ITALICS</i>.<br>
+Text dispalyed is <u>UNDERLINED</u>.<br>
+Text displayed with a <strike>LINE THROUGH IT</strike>.<br>
+Text displayed as a <sup>SUPERSCRIPT</sup>.<br>
+Text displayed as a <sub>SUBSCRIPT</sub>.<br>
+Text displayed in <big>LARGER FONT</big>.<br>
+Text displayed in <small>SMALLER FONT</small>.<br>
+Text displayed in <t>TYPEWRITER FONT</tt>.<br>
+</font>
+</body>
+</html>
+<!--
+Name : Rohit Aggarwal
+Roll No. : 7CS-097
+-->

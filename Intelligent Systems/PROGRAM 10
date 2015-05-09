@@ -1,0 +1,12 @@
+domains
+stringlist = string*
+predicates
+concate(stringlist,stringlist,stringlist)
+clauses
+concate([H1|T1], L2, [H1|L3]):-
+concate(T1,L2,L3).
+concate([],L3,L3).
+goal
+A=["A","C","E","G"],
+B=["B","D","F","H"],
+concate(A,B,C).

@@ -1,0 +1,24 @@
+<!--					Webpage No. : 
+Aim : Design a Webpage to display an Excel sheet using Frame Tag.
+-->
+<html>
+<head>
+<title>Webpage 14</title>
+</head>
+<frameset cols="*,*,*,*,*,*,*,*,*,*" rows="*,*,*,*,*,*,*,*,*,*">
+<frame><frame><frame><frame><frame><frame><frame><frame><frame><frame>
+<frame><frame><frame><frame><frame><frame><frame><frame><frame><frame>
+<frame><frame><frame><frame><frame><frame><frame><frame><frame><frame>
+<frame><frame><frame><frame><frame><frame><frame><frame><frame><frame>
+<frame><frame><frame><frame><frame><frame><frame><frame><frame><frame>
+<frame><frame><frame><frame><frame><frame><frame><frame><frame><frame>
+<frame><frame><frame><frame><frame><frame><frame><frame><frame><frame>
+<frame><frame><frame><frame><frame><frame><frame><frame><frame><frame>
+<frame><frame><frame><frame><frame><frame><frame><frame><frame><frame>
+<frame><frame><frame><frame><frame><frame><frame><frame><frame><frame>
+</frameset>
+</html>
+<!--
+Name : Rohit Aggarwal
+Roll No. : 7CS-097
+-->

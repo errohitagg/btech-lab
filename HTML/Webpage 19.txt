@@ -1,0 +1,27 @@
+<!--					Webpage No. :
+Aim : Design a Webpage for printing a Greeting on screen depending 
+      on the time of the day using Java Script.
+-->
+<html>
+<head>
+<title>Webpage 19</title>
+<script language="Javascript">
+var now=new Date;
+var hour=now.getHours();
+if(hour<=10)
+ document.write("<h2>Good Morning</h2>");
+else if(hour>10&&hour<=16)
+ document.write("<h2>Good Afternoon</h2>");
+else if(hour>16&&hour<=20)
+ document.write("<h2>Good Evening</h2>");
+else
+ document.write("<h2>Good Night</h2>");
+</script>
+</head>
+<body>
+</body>
+</html>
+<!--
+Name : Rohit Aggarwal
+Roll No. : 7CS-097
+-->

@@ -1,0 +1,15 @@
+domains
+integerlist=integer*
+predicates
+merge(integerlist,integerlist,integerlist)
+clauses
+merge([],L,L).
+merge(L,[],L).
+merge([X|T1],[Y|T2],[X|T3]):-
+X<Y,
+merge(T1,[Y|T2],T3).
+merge([X|T1],[Y|T2],[Y|T3]):-
+X>Y,
+merge([X|T1],T2,T3).
+goal
+merge([1,3,5,7,9],[0,2,4,6,8],L).

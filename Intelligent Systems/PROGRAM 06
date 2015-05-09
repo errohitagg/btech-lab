@@ -1,0 +1,15 @@
+domains 
+x,y,z,q=integer
+predicates 
+bool(integer) check(integer)
+clauses 
+bool(X):- Y=X mod 2, 
+write(Y),
+check(X), Z=X div 2,
+bool(Z).
+check(X):- 
+X>=1. 
+goal
+write("Enter the number : "),
+readint(X),
+bool(X).

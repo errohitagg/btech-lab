@@ -1,0 +1,17 @@
+<!--					Webpage No. : 
+Aim : Design a Webpage to print 'Hello World' using Java Script.
+-->
+<html>
+<head>
+<title>Webpage 16</title>
+<script language="JavaScript">
+document.write("<h1>Hello World</h1>");
+</script>
+</head>
+<body>
+</body>
+</html>
+<!--
+Name : Rohit Aggarwal
+Roll No. : 7CS-097
+-->

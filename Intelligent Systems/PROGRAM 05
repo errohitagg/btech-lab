@@ -1,0 +1,21 @@
+Domains
+usercode,password=symbol
+predicates
+login
+check_password
+user_data(symbol,symbol)
+clauses
+login:-
+check_password.
+login:-
+write("Invalid login"),nl.
+check_password:-
+write("User Name : "),
+readln(Usercode),nl,
+write("Password : "),
+readln(Password),nl,
+user_data(Usercode,Password).
+user_data("rohit","rohit").
+user_data("CSE97","CSE97").
+goal
+login.

@@ -1,0 +1,21 @@
+predicates
+hanoi(integer)
+move(integer,symbol,symbol,symbol)
+write11(symbol,symbol)
+clauses
+hanoi(N):-
+move(N,left,middle,right).
+move(1,A,_,C):-
+write11(A,C).
+move(N,A,B,C):-
+N>1,
+N1=N-1,
+move(N1,A,C,B),
+write11(A,C),
+move(N1,B,A,C).
+write11(A,B):-
+write("Move disk from ",A," to ",B),nl.
+goal
+write("Enter the number of disks : "),
+readint(P),
+hanoi(P).

@@ -1,0 +1,27 @@
+<!--					Webpage No. :
+Aim : Design a Webpage to display images of different kinds of 
+      formats.
+-->
+<html>
+<head>
+<title>Webpage 07</title>
+</head>
+<body>
+<h1>This Webpage shows different images of different formats.</h1>
+<br><br>
+<font face="Arail Narrow" size=5>
+<ul>
+<li>This is an image of .bmp format.
+<img src="The Castle.bmp" width=250 height=150 align="Center">
+<li>This is an image of .gif format.
+<img src="The Bike.gif" width=250 height=150 align="Center">
+<li>This is an image of .jpg format.
+<img src="The Car.jpg" width=250 height=150 align="Center">
+</ul> 
+</font>
+</body>
+</html>
+<!--
+Name : Rohit Aggarwal
+Roll No. : 7CS-097
+-->

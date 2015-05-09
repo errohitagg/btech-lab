@@ -1,0 +1,16 @@
+domains
+n,s=integer.
+predicates
+fact(integer,integer).
+clauses
+fact(0,1):-!.
+fact(N, Factorial) :-
+write("Entering recursive rule for factorial with N = "), 
+write(N),
+nl,
+Nminus1 = N - 1,
+fact(Nminus1, Nminus1Factorial),Factorial = N * Nminus1Factorial.
+goal
+write("Enter the number : "),
+readint(N),
+fact(N,Factorial).

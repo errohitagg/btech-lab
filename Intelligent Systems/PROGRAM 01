@@ -1,0 +1,14 @@
+domains
+x,y=integer
+predicates
+add(integer,integer,integer)
+clauses
+add(0,X,X).
+add(X,Y,Sum):-
+Sum=X+Y.
+goal
+write("Enter the first number : "),
+readint(X),
+write("Enter the second number : "),
+readint(Y),
+add(X,Y,Sum).

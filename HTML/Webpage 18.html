@@ -1,0 +1,51 @@
+<!--					Webpage No. :
+Aim : Design a Webpage to create a simple calculator with all the 
+      basic operations (+,-,*,/,%) using Java Script.
+-->
+<html>
+<head>
+<title>Webpage 18</title>
+<script language="Javascript">
+var x,y,z,res;
+x=prompt("Enter the first number : ");
+x=parseInt(x);
+z=prompt("Enter the operation to be performed : ");
+y=prompt("Enter the second number : ");
+y=parseInt(y);
+switch(z)
+ {
+  case '+':res=x+y;
+           document.write("<h2>"+x+" + "+y+" = "+res+"</h2>");
+           break;
+  case '-':res=x-y;
+           document.write("<h2>"+x+" - "+y+" = "+res+"</h2>");
+           break;
+  case '*':res=x*y;
+           document.write("<h2>"+x+" * "+y+" = "+res+"</h2>");
+           break;
+  case '/':if(y==0)
+            {
+             document.write("<h3>Division can't be performed.<br>"+
+                            "Can't Divide by zero.</h3>");
+            }
+           else
+            {
+             res=x/y;
+             document.write("<h2>"+x+" / "+y+" = "+res+"</h2>");
+            }
+           break;
+  case '%':res=x%y;
+           document.write("<h2>"+x+" % "+y+" = "+res+"</h2>");
+           break;
+  default:document.write("<h3>Operation can't be performed.<br>"+
+                         "Incorrect Operation.</h3>");
+ }
+</script>
+</head>
+<body>
+</body>
+</html>
+<!--
+Name : Rohit Aggarwal
+Roll No. : 7CS-097
+-->

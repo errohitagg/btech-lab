@@ -1,0 +1,18 @@
+<!--					Webapage  No. : 
+Aim : Design a Webpage to set an Image Map on an Image using 
+      different shapes.
+-->
+<html>
+<head>
+<title>Webpage 12(P)</title>
+</head>
+<body>
+<H1>Webpage has been opened through a Polygon on the Image Map.</h1>
+<br><br>
+<a href="Webpage 12.html">Go back to Main Page</a>
+</body>
+</html>
+<!--
+Name : Rohit Aggarwal
+Roll No. : 7CS-097
+-->

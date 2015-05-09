@@ -1,0 +1,15 @@
+domains
+x,y=integer
+predicates
+greater(integer,integer,integer)
+clauses
+greater(X,Y,Y):-
+X<Y.
+greater(X,Y,X):-
+X>Y.
+goal
+write("Enter the first number : "),
+readint(X),
+write("Enter the second number : "),
+readint(Y),
+greater(X,Y,Greater).

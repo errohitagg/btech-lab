@@ -1,0 +1,26 @@
+domains
+x=symbol
+predicates
+available(x)
+check
+start
+clauses
+available(banana).
+available(chair).
+available(stick).
+check:-
+available(banana),
+write("Banana is hanging from the tree"),nl,nl,
+available(chair),
+write("Monkey will move the chair under the tree."),nl,nl,
+available(stick),
+write("Monkey will use the stick to have a banana"),nl,nl,
+write("Monkey is now enjoying the banana..."),nl,nl.
+start:-
+write("..........Monkey banana problem........."),nl,nl,
+write("........Press any key to continue........"),nl,nl,
+readchar(X),
+check,
+write(".....Problem now solved successfully....."),nl,nl.
+goal
+start.
