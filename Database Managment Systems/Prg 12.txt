@@ -1,0 +1,107 @@
+SQL*Plus: Release 10.2.0.3.0 - Production on Sun Apr 26 12:32:45 2009
+
+Copyright (c) 1982, 2006, Oracle.  All Rights Reserved.
+
+Connected to:
+Oracle Database 10g Enterprise Edition Release 10.2.0.3.0 - Production
+With the Partitioning, OLAP and Data Mining options
+
+
+SQL> create trigger Weekend_emp
+  2  before insert
+  3  on Emp
+  4  declare
+  5  Week_end exception;
+  6  begin
+  7  if to_char(sysdate,'dy')='sat' or to_char(sysdate,'dy')='sun'
+  8  then
+  9  raise Week_end;
+ 10  end if;
+ 11  exception
+ 12  if Week_end then
+ 13  raise_application_error(-20003,'No update is allowed on Saturday or Sunday');
+ 14  end if;
+ 15  end;
+
+Trigger created.
+
+
+SQL> create trigger trig_udi
+  2  after update or delete or insert
+  3  on Emp
+  4  for each row
+  5  decalre
+  6  Empno number(4);
+  7  Ename varchar2(10);
+  8  Opera varchar2(15);
+  9  begin
+ 10  if deleting then
+ 11  Opera:='Deletion';
+ 12  end if;
+ 13  if inserting then
+ 14  Opera:='Insertion';
+ 15  end if;
+ 16  if updating then
+ 17  Opera:='Update';
+ 18  end if;
+ 19  Empno:=old.Empno;
+ 20  Ename:= old.Ename;
+ 21  insert into udi values (Empno, Ename, Opera, User, Sysdate);
+ 22  end;
+ 23   /
+
+Trigger created.
+
+
+SQL> delete from Emp where Empno=7876;
+
+1 row deleted.
+
+
+SQL> select * from udi;
+
+       ENO NAME            OPERA           URID            OPDATE
+---------- --------------- --------------- --------------- ---------
+      7876 Adams           Deletion        SCOTT           24-APR-09
+
+
+SQL> update Emp 
+  2  set sal=5000 
+  3  where sal<2000;
+
+6 rows updated.
+
+
+SQL> select * from udi;
+
+       ENO NAME            OPERA           URID            OPDATE
+---------- --------------- --------------- --------------- ---------
+      7876 Adams           Deletion        SCOTT           24-APR-09
+      7499 Allen           Update          SCOTT           24-APR-09
+      7521 Ward            Update          SCOTT           24-APR-09
+      7654 Martin          Update          SCOTT           24-APR-09
+      7844 Turner          Update          SCOTT           24-APR-09
+      7900 James           Update          SCOTT           24-APR-09
+      7934 Miller          Update          SCOTT           24-APR-09
+
+7 rows selected.
+
+
+SQL> alter trigger trig_udi disable;
+
+Trigger altered.
+
+
+SQL> alter trigger weekend_emp disable;
+
+Trigger altered.
+
+
+SQL> alter trigger trig_udi enable;
+
+Trigger altered.
+
+
+SQL> alter trigger weekend_emp enable;
+
+Trigger altered.

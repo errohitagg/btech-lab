@@ -1,0 +1,112 @@
+
+SQL*Plus: Release 10.2.0.3.0 - Production on Sun Apr 26 12:32:45 2009
+
+Copyright (c) 1982, 2006, Oracle.  All Rights Reserved.
+
+Connected to:
+Oracle Database 10g Enterprise Edition Release 10.2.0.3.0 - Production
+With the Partitioning, OLAP and Data Mining options
+
+
+SQL> create view View_Student
+  2  as select Name,Roll_no,Contact from Student;
+
+View created.
+
+
+SQL> select * from View_student;
+
+NAME                         ROLL_NO    CONTACT
+------------------------- ---------- ----------
+Rohit Aggarwal                    97 9876543333
+Prateek Varshney                   2 9777123234
+Ojassvi Chawla                    77 9876423223
+Parth Garg                        65 9232374923
+Paras Gera                        80 9212374921
+Arpit Jain                        12 9829213723
+Ishan Banga                       34 9237663287
+Keshav Yadav                      45 9832465221
+Shivansh Sharma                   89 9753233223
+Ankit Sharma                      11 9323723423
+
+10 rows selected.
+
+
+SQL> create view View_Project
+  2  as select * from Project;
+
+View created.
+
+
+SQL> select * from View_Project;
+
+PROJECT_ID PROJECT_NAME                    TIME   STUDENTS
+---------- ------------------------- ---------- ----------
+         1 GUI Application                   30          2
+         2 Motion Sensor                     28          3
+         3 Voice Convertor                   35          3
+         4 Antivirus Software                30          2
+
+
+SQL>  create view View_Details
+  2   as select a.Name,a.Roll_No,b.Project_ID,b.Project_Name
+  3   from Student a join Project b
+  4   on a.Project_ID = b.Project_ID;
+
+View created.
+
+
+SQL> select * from View_Details;
+
+NAME                         ROLL_NO PROJECT_ID PROJECT_NAME
+------------------------- ---------- ---------- -------------------------
+Rohit Aggarwal                    97          1 GUI Application
+Prateek Varshney                   2          3 Voice Convertor
+Ojassvi Chawla                    77          3 Voice Convertor
+Parth Garg                        65          1 GUI Application
+Paras Gera                        80          3 Voice Convertor
+Arpit Jain                        12          2 Motion Sensor
+Ishan Banga                       34          2 Motion Sensor
+Keshav Yadav                      45          2 Motion Sensor
+Shivansh Sharma                   89          4 Antivirus Software
+Ankit Sharma                      11          4 Antivirus Software
+
+10 rows selected.
+
+
+SQL> create index Index_Student
+  2  on Student(Roll_NO);
+on Student(Roll_NO)
+           *
+ERROR at line 2:
+ORA-01408: such column list already indexed
+
+
+SQL> create index Index_Student
+  2  on Student(Project_ID);
+
+Index created.
+
+
+SQL> create index Index_Project
+  2  on Project(Project_ID);
+on Project(Project_ID)
+           *
+ERROR at line 2:
+ORA-01408: such column list already indexed
+
+
+SQL> create index Index_Project
+  2  on Project(Students);
+
+Index created.
+
+
+SQL> drop index Index_Student;
+
+Index dropped.
+
+
+SQL> drop index Index_Project;
+
+Index dropped.

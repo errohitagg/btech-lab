@@ -1,0 +1,193 @@
+
+SQL*Plus: Release 10.2.0.3.0 - Production on Tue Apr 7 00:05:40 2009
+
+Copyright (c) 1982, 2006, Oracle.  All Rights Reserved.
+
+Connected to:
+Oracle Database 10g Enterprise Edition Release 10.2.0.3.0 - Production
+With the Partitioning, OLAP and Data Mining options
+
+
+SQL>  create table student
+  2   (
+  3   Name varchar2(25),
+  4   Roll_No varchar2(10),
+  5   Branch varchar2(30),
+  6   Batch int,
+  7   Date_Of_Birth date,
+  8   Contact_NO char(10)
+  9   );
+
+Table created.
+
+
+SQL> desc student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NAME                                               VARCHAR2(25)
+ ROLL_NO                                            VARCHAR2(10)
+ BRANCH                                             VARCHAR2(30)
+ BATCH                                              NUMBER(38)
+ DATE_OF_BIRTH                                      DATE
+ CONTACT_NO                                         CHAR(10)
+
+
+SQL> insert into student values
+  2  ('Rohit Aggarwal','7CS-097','Computer Science and Engg.',2011,'25 November, 1989','9811699973');
+
+1 row created.
+
+
+SQL> insert into student values
+  2  ('Parth Garg','7IT-062','Information Technology',2011,'2 September, 1989','9654507585');
+
+1 row created.
+
+
+SQL> insert into student values
+  2  ('Prateek Varshney','7CS-084','Computer Science and Engg.',2011,'28 April, 1988','9873928488');
+
+1 row created.
+
+
+SQL> select * from student;
+
+NAME                      ROLL_NO    BRANCH                              BATCH DATE_OF_BIRTH CONTACT_NO
+------------------------- ---------- ------------------------------ ---------- ------------- ----------
+
+Rohit Aggarwal            7CS-097    Computer Science and Engg.           2011 25-NOV-89     9811699973
+
+Parth Garg                7IT-062    Information Technology               2011 02-SEP-89     9654507585
+
+Prateek Varshney          7CS-084    Computer Science and Engg.           2011 28-APR-88     9873928488
+
+3 rows selected.
+
+
+SQL> create table new_student
+  2  as select * from student where 1=2;
+
+Table created.
+
+
+SQL> desc new_student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NAME                                               VARCHAR2(25)
+ ROLL_NO                                            VARCHAR2(10)
+ BRANCH                                             VARCHAR2(30)
+ BATCH                                              NUMBER(38)
+ DATE_OF_BIRTH                                      DATE
+ CONTACT_NO                                         CHAR(10)
+
+
+SQL> select * from new_student;
+
+no rows selected.
+
+
+SQL> create table temp_student
+  2  as select * from student;
+
+Table created.
+
+
+SQL> desc temp_student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NAME                                               VARCHAR2(25)
+ ROLL_NO                                            VARCHAR2(10)
+ BRANCH                                             VARCHAR2(30)
+ BATCH                                              NUMBER(38)
+ DATE_OF_BIRTH                                      DATE
+ CONTACT_NO                                         CHAR(10)
+
+
+SQL> select * from temp_student;
+
+NAME                      ROLL_NO    BRANCH                              BATCH DATE_OF_BIRTH CONTACT_NO
+------------------------- ---------- ------------------------------ ---------- ------------- ----------
+
+Rohit Aggarwal            7CS-097    Computer Science and Engg.           2011 25-NOV-89     9811699973
+
+Parth Garg                7IT-062    Information Technology               2011 02-SEP-89     9654507585
+
+Prateek Varshney          7CS-084    Computer Science and Engg.           2011 28-APR-88     9873928488
+
+3 row selected.
+
+
+SQL> insert into student values
+  2  ('&Name','&Roll_Number','&Branch','&Batch','&Date_Of_Birth','&Contact_Number');
+Enter value for name: Ojassvi Chawla
+Enter value for roll_number: 7CS-077
+Enter value for branch: Computer Science and Engg.
+Enter value for batch: 2011
+Enter value for date_of_birth: 7 November, 1989
+Enter value for contact_number: 25371744
+old   2: ('&Name','&Roll_Number','&Branch','&Batch','&Date_Of_Birth','&Contact_Number')
+new   2: ('Ojassvi Chawla','7CS-077','Computer Science and Engg.','2011','7 November, 1989','25371744')
+
+1 row created.
+
+
+SQL> /
+Enter value for name: Priyanka Chauhan
+Enter value for roll_number: 7CS-087
+Enter value for branch: Computer Science and Engg.
+Enter value for batch: 2011
+Enter value for date_of_birth: 17 November, 1989
+Enter value for contact_number: 9958947474
+old   2: ('&Name','&Roll_Number','&Branch','&Batch','&Date_Of_Birth','&Contact_Number')
+new   2: ('Priyanka Chauhan','7CS-087','Computer Science and Engg.','2011','17 November, 1989','9958947474')
+
+1 row created.
+
+
+SQL> /
+Enter value for name: Ankit Sharma
+Enter value for roll_number: 7EE-011
+Enter value for branch: Elect. and Electronics Engg.
+Enter value for batch: 2011
+Enter value for date_of_birth: 11 November, 1989
+Enter value for contact_number: 9873427585
+old   2: ('&Name','&Roll_Number','&Branch','&Batch','&Date_Of_Birth','&Contact_Number')
+new   2: ('Ankit Sharma','7EE-011','Elect. and Electronics Engg.','2011','11 November, 1989','9873427585')
+
+1 row created.
+
+
+SQL> /
+Enter value for name: Neha Vashisht
+Enter value for roll_number: 7CS-114
+Enter value for branch: Computer Science and Engg.
+Enter value for batch: 2012
+Enter value for date_of_birth: 11 November, 1989
+Enter value for contact_number: 9953547261
+old   2: ('&Name','&Roll_Number','&Branch','&Batch','&Date_Of_Birth','&Contact_Number')
+new   2: ('Neha Vashisht','7CS-114','Computer Science and Engg.','2012','11 November, 1989','9953547261')
+
+1 row created.
+
+
+SQL> select * from student;
+
+NAME                      ROLL_NO    BRANCH                              BATCH DATE_OF_BIRTH CONTACT_NO
+------------------------- ---------- ------------------------------ ---------- ------------- ----------
+
+Rohit Aggarwal            7CS-097    Computer Science and Engg.           2011 25-NOV-89     9811699973
+
+Parth Garg                7IT-062    Information Technology               2011 02-SEP-89     9654507585
+
+Prateek Varshney          7CS-084    Computer Science and Engg.           2011 28-APR-88     9873928488
+
+Ojassvi Chawla            7CS-077    Computer Science and Engg.           2011 07-NOV-89     25371744
+
+Priyanka Chauhan          7CS-087    Computer Science and Engg.           2011 17-NOV-89     9958947474
+
+Ankit Sharma              7EE-011    Elect. and Electronics Engg.         2011 11-NOV-89     9873427585
+
+Neha Vashisht             7CS-114    Computer Science and Engg.           2012 11-NOV-89     9953547261
+
+
+7 rows selected.

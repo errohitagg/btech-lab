@@ -1,0 +1,72 @@
+
+SQL*Plus: Release 10.2.0.3.0 - Production on Mon Apr 20 11:49:18 2009
+
+Copyright (c) 1982, 2006, Oracle.  All Rights Reserved.
+
+Connected to:
+Oracle Database 10g Enterprise Edition Release 10.2.0.3.0 - Production
+With the Partitioning, OLAP and Data Mining options
+
+
+SQL> declare ename employee.name%type;
+  2  esal employee.salary%type;
+  3  cursor top_sal
+  4  is
+  5  select name,salary from employee order by salary desc;
+  6  begin
+  7  open top_sal;
+  8  fetch top_sal into ename,esal;
+  9  dbms_output.put_line(ename||' is having the maximum salary of Rs. '||esal||' per month');
+ 10  close top_sal;
+ 11  end;
+ 12  /
+Rohit Aggarwal is having the maximum salary of Rs. 18000 per month
+
+PL/SQL procedure successfully completed.
+
+
+SQL> update employee
+  2  set salary=20000
+  3  where emp_id=003;
+
+1 row updated.
+
+
+SQL> declare ename employee.name%type;
+  2  esal employee.salary%type;
+  3  cursor top_sal
+  4  is
+  5  select name,salary from employee order by salary desc;
+  6  begin
+  7  open top_sal;
+  8  fetch top_sal into ename,esal;
+  9  dbms_output.put_line(ename||' is having the maximum salary of Rs. '||esal||' per month');
+ 10  close top_sal;
+ 11  end;
+ 12  /
+Ojassvi Chawla is having the maximum salary of Rs. 20000 per month
+
+PL/SQL procedure successfully completed.
+
+
+SQL> declare ename employee.name%type;
+  2  edsig employee.designation%type;
+  3  esal employee.salary%type;
+  4  cursor top_sal
+  5  is
+  6  select name,designation,salary from Employee order by salary desc;
+  7  begin
+  8  open top_sal;
+  9  loop
+ 10  fetch top_sal into ename,edsig,esal;
+ 11  dbms_output.put_line(ename||'  '||edsig||'  '||esal);
+ 12  exit when top_sal%notfound or top_sal%rowcount=3;
+ 13  end loop;
+ 14  close top_sal;
+ 15  end;
+ 16  /
+Rohit Aggarwal  Manager  15000
+Ojassvi Chawla  Deputy Manager  14500
+Paras Gera  Executive  14000
+
+PL/SQL procedure successfully completed.

@@ -1,0 +1,49 @@
+<!--					Webpage No. :
+Aim : Design an HTML page to depict the use of alert, prompt and confirm box using JavaScript.
+-->
+
+<html>
+<head>
+<title>Webpage 04</title>
+<script language="JavaScript">
+<!--
+var no1,no1,op;
+var ans=new Boolean();
+ans=1;
+while(ans==1)
+{
+ no1=prompt("Enter the first number :");
+ no1=parseInt(no1);
+ no2=prompt("Enter the second number :");
+ no2=parseInt(no2);
+ op=prompt("Enter the operation to be performed :");
+ switch(op)
+  {
+   case '+':document.write("<h2>"+no1+" + "+no2+" = "+(no1+no2)+"</h2>");
+            break;
+   case '-':document.write("<h2>"+no1+" - "+no2+" = "+(no1-no2)+"</h2>");
+            break;
+   case '*':document.write("<h2>"+no1+" * "+no2+" = "+(no1*no2)+"</h2>");
+            break;
+   case '/':if(no2==0)
+             alert("Division can't be performed.\nCan't divide by zero.")
+            else
+             document.write("<h2>"+no1+" / "+no2+" = "+(no1/no2)+"</h2>");
+            break;
+   case '%':document.write("<h2>"+no1+" % "+no2+" = "+(no1%no2)+"</h2>");
+            break;
+   default:alert("Operation can't be performed.\nIncorrect Operation.");
+  }
+ ans=confirm("Do you want to run the application again???");
+}
+-->
+</script>
+</head>
+<body>
+</body>
+</html>
+
+<!--
+Name : Rohit Aggarwal
+Roll No. : 7CS-097
+-->

@@ -1,0 +1,103 @@
+
+SQL*Plus: Release 10.2.0.3.0 - Production on Mon Apr 20 11:49:18 2009
+
+Copyright (c) 1982, 2006, Oracle.  All Rights Reserved.
+
+Connected to:
+Oracle Database 10g Enterprise Edition Release 10.2.0.3.0 - Production
+With the Partitioning, OLAP and Data Mining options
+
+
+SQL> create procedure mul_new
+  2  (x in number,y in number)
+  3  is
+  4  z number;
+  5  begin
+  6  z:=x*y;
+  7  dbms_output.put_line(x||' * '||y||' = '||z);
+  8  end;
+  9  /
+
+Procedure created.
+
+
+SQL> execute mul_new(5,7);
+5 * 7 = 35
+
+PL/SQL procedure successfully completed.
+
+
+SQL> execute mul_new(18,19);
+18 * 19 = 342
+
+PL/SQL procedure successfully completed.
+
+
+SQL> execute mul_new(101,201);
+101 * 201 = 20301
+
+PL/SQL procedure successfully completed.
+
+
+SQL> execute mul_new(19,139);
+19 * 139 = 2641
+
+PL/SQL procedure successfully completed.
+
+
+SQL> create procedure inc_sal
+  2  (id in employee.emp_id%type,
+  3  per in number)
+  4  is
+  5  begin
+  6  update employee
+  7  set salary=salary*(1+per/100)
+  8  where emp_id=id;
+  9  end inc_sal;
+ 10  /
+
+Procedure created.
+
+
+SQL> select * from employee;
+
+NAME                          EMP_ID DESIGNATION                   SALARY
+------------------------- ---------- ------------------------- ----------
+Rohit Aggarwal                     1 Manager                        15000
+Prateek Varshney                   2 Executive                      14000
+Ojassvi Chawla                     3 Deputy Manager                 14500
+Paras Gera                         4 Executive                      14000
+
+4 rows selected.
+
+
+SQL> execute inc_sal(001,20);
+
+PL/SQL procedure successfully completed.
+
+
+SQL> execute inc_sal(002,10);
+
+PL/SQL procedure successfully completed.
+
+
+SQL> execute inc_sal(003,15);
+
+PL/SQL procedure successfully completed.
+
+
+SQL> execute inc_sal(004,10);
+
+PL/SQL procedure successfully completed.
+
+
+SQL> select * from employee;
+
+NAME                          EMP_ID DESIGNATION                   SALARY
+------------------------- ---------- ------------------------- ----------
+Rohit Aggarwal                     1 Manager                        18000
+Prateek Varshney                   2 Executive                      15400
+Ojassvi Chawla                     3 Deputy Manager                 16675
+Paras Gera                         4 Executive                      15400
+
+4 rows selected.

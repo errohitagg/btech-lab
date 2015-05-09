@@ -1,0 +1,129 @@
+
+SQL*Plus: Release 10.2.0.3.0 - Production on Tue Apr 7 00:05:40 2009
+
+Copyright (c) 1982, 2006, Oracle.  All Rights Reserved.
+
+Connected to:
+Oracle Database 10g Enterprise Edition Release 10.2.0.3.0 - Production
+With the Partitioning, OLAP and Data Mining options
+
+
+SQL> delete from student where roll_no = '7CS-084';
+
+1 row deleted.
+
+
+SQL> delete from student where batch = 2012;
+
+1 row deleted.
+
+
+SQL> select * from student;
+
+NAME                      ROLL_NO    BRANCH                              BATCH DATE_OF_BIRTH CONTACT_NO
+------------------------- ---------- ------------------------------ ---------- ------------- ----------
+
+Rohit Aggarwal            7CS-097    Computer Science and Engg.           2011 25-NOV-89     9811699973
+
+Parth Garg                7IT-062    Information Technology               2011 02-SEP-89     9654507585
+
+Ojassvi Chawla            7CS-077    Computer Science and Engg.           2011 07-NOV-89     25371744
+
+Priyanka Chauhan          7CS-087    Computer Science and Engg.           2011 17-NOV-89     9958947474
+
+Ankit Sharma              7EE-011    Elect. and Electronics Engg.         2011 11-NOV-89     9873427585
+
+5 rows selected.
+
+
+SQL> update student
+  2  set Contact_no = '27042716'
+  3  where Name = 'Rohit Aggarwal';
+
+1 row updated.
+
+
+SQL> update student
+  2  set Contact_no = '27857585'
+  3  where Branch = 'Elect. and Electronics Engg.' and Roll_no = '7EE-011';
+
+1 row updated.
+
+
+SQL> select * from student;
+
+NAME                      ROLL_NO    BRANCH                              BATCH DATE_OF_BIRTH CONTACT_NO
+------------------------- ---------- ------------------------------ ---------- ------------- ----------
+
+Rohit Aggarwal            7CS-097    Computer Science and Engg.           2011 25-NOV-89     27043308
+
+Parth Garg                7IT-062    Information Technology               2011 02-SEP-89     9654507585
+
+Ojassvi Chawla            7CS-077    Computer Science and Engg.           2011 07-NOV-89     25371744
+
+Priyanka Chauhan          7CS-087    Computer Science and Engg.           2011 17-NOV-89     9958947474
+
+Ankit Sharma              7EE-011    Elect. and Electronics Engg.         2011 11-NOV-89     27857585
+
+5 rows selected.
+
+
+SQL> delete from student;
+
+5 rows deleted.
+
+
+SQL> select * from student;
+
+no rows selected
+
+
+SQL> alter table student
+  2  add(
+  3  Semester int
+  4  );
+
+Table altered.
+
+
+SQL> desc student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NAME                                               VARCHAR2(25)
+ ROLL_NO                                            VARCHAR2(10)
+ BRANCH                                             VARCHAR2(30)
+ BATCH                                              NUMBER(38)
+ DATE_OF_BIRTH                                      DATE
+ CONTACT_NO                                         CHAR(10)
+ SEMESTER                                           NUMBER(38)
+
+
+SQL> alter table student
+  2  modify(
+  3  Branch varchar2(40)
+  4  );
+
+Table altered.
+
+
+SQL> desc student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NAME                                               VARCHAR2(25)
+ ROLL_NO                                            VARCHAR2(10)
+ BRANCH                                             VARCHAR2(40)
+ BATCH                                              NUMBER(38)
+ DATE_OF_BIRTH                                      DATE
+ CONTACT_NO                                         CHAR(10)
+ SEMESTER                                           NUMBER(38)
+
+
+SQL> drop table student;
+
+Table dropped.
+
+
+SQL> desc student;
+ERROR:
+ORA-04043: object student does not exist
+

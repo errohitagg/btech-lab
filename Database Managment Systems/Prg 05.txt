@@ -1,0 +1,142 @@
+
+SQL*Plus: Release 10.2.0.3.0 - Production on Sun Apr 26 12:32:45 2009
+
+Copyright (c) 1982, 2006, Oracle.  All Rights Reserved.
+
+Connected to:
+Oracle Database 10g Enterprise Edition Release 10.2.0.3.0 - Production
+With the Partitioning, OLAP and Data Mining options
+
+
+SQL> lock table Employee in Row Share mode;
+
+Table(s) Locked.
+
+
+SQL> lock table Student in Share Update mode;
+
+Table(s) Locked.
+
+
+SQL> lock table Project in Share Row Exclusive mode;
+
+Table(s) Locked.
+
+
+SQL> commit;
+
+Commit complete.
+
+
+SQL> lock table Employee in Exclusive mode;
+
+Table(s) Locked.
+
+
+SQL> lock table Student in Row Exclusive mode;
+
+Table(s) Locked.
+
+
+SQL> lock table Project in Share mode;
+
+Table(s) Locked.
+
+
+SQL> rollback;
+
+Rollback complete.
+
+
+SQL> create sequence Roll_No
+  2  increment by 1
+  3  start with 61
+  4  maxvalue 120
+  5  nocycle;
+
+
+SQL> create table Student
+  2  (Name varchar2(25),
+  3  Roll_No int primary key,
+  4  Semester int
+  5  );
+
+Table created.
+
+
+SQL> insert into Student values ('&Name',Roll_No.nextval,'&Sem');
+Enter value for name: Rohit Aggarwal
+Enter value for sem: 4
+old   1: insert into Student values ('&Name',Roll_No.nextval,'&Sem')
+new   1: insert into Student values ('Rohit Aggarwal',Roll_No.nextval,'4')
+
+1 row created.
+
+
+SQL> /
+Enter value for name: Prateek Varshney
+Enter value for sem: 4
+old   1: insert into Student values ('&Name',Roll_No.nextval,'&Sem')
+new   1: insert into Student values ('Prateek Varshney',Roll_No.nextval,'4')
+
+1 row created.
+
+
+SQL> /
+Enter value for name: Ojassvi Chawla
+Enter value for sem: 4
+old   1: insert into Student values ('&Name',Roll_No.nextval,'&Sem')
+new   1: insert into Student values ('Ojassvi Chawla',Roll_No.nextval,'4')
+
+1 row created.
+
+
+SQL> /
+Enter value for name: Yash Vigmal
+Enter value for sem: 2
+old   1: insert into Student values ('&Name',Roll_No.nextval,'&Sem')
+new   1: insert into Student values ('Yash Vigmal',Roll_No.nextval,'2')
+
+1 row created.
+
+
+SQL> /
+Enter value for name: Parth Garg
+Enter value for sem: 4
+old   1: insert into Student values ('&Name',Roll_No.nextval,'&Sem')
+new   1: insert into Student values ('Parth Garg',Roll_No.nextval,'4')
+
+1 row created.
+
+
+SQL> /
+Enter value for name: Kamal Nanda
+Enter value for sem: 3
+old   1: insert into Student values ('&Name',Roll_No.nextval,'&Sem')
+new   1: insert into Student values ('Kamal Nanda',Roll_No.nextval,'3')
+
+1 row created.
+
+
+SQL> /
+Enter value for name: Nitin Bhatia
+Enter value for sem: 3
+old   1: insert into Student values ('&Name',Roll_No.nextval,'&Sem')
+new   1: insert into Student values ('Nitin Bhatia',Roll_No.nextval,'3')
+
+1 row created.
+
+
+SQL> select * from Student;
+
+NAME                         ROLL_NO   SEMESTER
+------------------------- ---------- ----------
+Rohit Aggarwal                    61          4
+Prateek Varshney                  62          4
+Ojassvi Chawla                    63          4
+Yash Vigmal                       64          2
+Parth Garg                        65          4
+Kamal Nanda                       66          3
+Nitin Bhatia                      67          3
+
+7 rows selected.

@@ -1,0 +1,80 @@
+<!--					Webpage No. : 
+Aim : Design an HTML page to depict the use of objects and events using JavaScript.
+-->
+
+<html>
+<head>
+<title>Webpage 05</title>
+<script language="JavaScript">
+<!--
+var error="The following values are not entered :\n";
+var count;
+count=parseInt(count);
+count=0;
+function check()
+{
+ if(data.name.value=="")
+  {
+   count++;
+   error+=count+". Name\n";
+  }
+ if(data.father.value=="")
+  {
+   count++;
+   error+=count+". Father's Name\n";
+  }
+ if(data.mother.value=="")
+  {
+   count++;
+   error+=count+". Mother's Name\n";
+  }  
+ if(data.address.value=="")
+  {
+   count++;
+   error+=count+". Address\n";
+  } 
+ if(data.contact.value=="")
+  {
+   count++;
+   error+=count+". Contact Number\n";
+  }
+ if(data.email.value=="")
+  {
+   count++;
+   error+=count+". E-Mail ID\n";
+  } 
+ if(data.roll.value=="")
+  {
+   count++;
+   error+=count+". Institute Roll Number\n";
+  }  
+ alert(error);
+}
+-->
+</script>
+</head>
+<body>
+<h1 align="center">Maharishi Dayanand University, Rohtak</h1>
+<h2 align="Center">Registration Form</h2>
+<form name="data" method="post">
+<pre>
+<font face="Arial Narrow" size=4>
+<b>Name</b>			<input type="Text" name="name" size="40"><br>
+<b>Father's Name</b>		<input type="Text" name="father" size="45"><br>
+<b>Mother's Name</b>		<input type="Text" name="mother" size="45"><br>
+<b>Address</b>			<textarea rows="2" name="address" cols="50" maxlength="100" wrap></textarea><br>
+<b>Contact Number</b>		<input type="Text" name="contact" size="15"><br>
+<b>E-Mail ID</b>        		<input type="TexT" name="email" size="40"><br>
+<b>Institute</b>			<select name="institute">
+					<option>L.I.M.A.T<option>Y.M.C.A<option>C.I.T.M<option>M.R.I.T
+					</select><br>
+<b>Institute Roll No.</b>		<input type="Text" name="roll" size="10"><br><br>
+<center><input type="Submit" onclick=check() value="Submit Details"></center>
+</form>
+</body>
+</html>
+
+<!--
+Name : Rohit Aggarwal
+Roll No. : 7CS-097
+-->

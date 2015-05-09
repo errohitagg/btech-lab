@@ -1,0 +1,143 @@
+
+SQL*Plus: Release 10.2.0.3.0 - Production on Sun Apr 26 12:32:45 2009
+
+Copyright (c) 1982, 2006, Oracle.  All Rights Reserved.
+
+Connected to:
+Oracle Database 10g Enterprise Edition Release 10.2.0.3.0 - Production
+With the Partitioning, OLAP and Data Mining options
+
+
+SQL> create table Student
+  2  (Name varchar2(25),
+  3  Roll_No int
+  4  );
+
+Table created.
+
+
+SQL> select * from Student;
+
+no rows selected
+
+
+SQL> insert into Student values ('&Name','&Roll_no');
+Enter value for name: Rohit Aggarwal
+Enter value for roll_no: 97
+old   1: insert into Student values ('&Name','&Roll_no')
+new   1: insert into Student values ('Rohit Aggarwal','97')
+
+1 row created.
+
+
+SQL> /
+Enter value for name: Ojassvi Chawla
+Enter value for roll_no: 77
+old   1: insert into Student values ('&Name','&Roll_no')
+new   1: insert into Student values ('Ojassvi Chawla','77')
+
+1 row created.
+
+
+SQL> /
+Enter value for name: Prateek Varshney
+Enter value for roll_no: 84
+old   1: insert into Student values ('&Name','&Roll_no')
+new   1: insert into Student values ('Prateek Varshney','84')
+
+1 row created.
+
+
+SQL> select * from Student;
+
+NAME                         ROLL_NO
+------------------------- ----------
+Rohit Aggarwal                    97
+Ojassvi Chawla                    77
+Prateek Varshney                  84
+
+3 rows selected.
+
+
+SQL> rollback;
+
+Rollback complete.
+
+
+SQL> select * from Student;
+
+no rows selected
+
+
+SQL> insert into Student values ('&Name','&Roll_no');
+Enter value for name: Rohit Aggarwal
+Enter value for roll_no: 97
+old   1: insert into Student values ('&Name','&Roll_no')
+new   1: insert into Student values ('Rohit Aggarwal','97')
+
+1 row created.
+
+
+SQL> /
+Enter value for name: Ojassvi Chawla
+Enter value for roll_no: 77
+old   1: insert into Student values ('&Name','&Roll_no')
+new   1: insert into Student values ('Ojassvi Chawla','77')
+
+1 row created.
+
+
+SQL> /
+Enter value for name: Prateek Varshney
+Enter value for roll_no: 84
+old   1: insert into Student values ('&Name','&Roll_no')
+new   1: insert into Student values ('Prateek Varshney','84')
+
+1 row created.
+
+
+SQL> select * from Student;
+
+NAME                         ROLL_NO
+------------------------- ----------
+Rohit Aggarwal                    97
+Ojassvi Chawla                    77
+Prateek Varshney                  84
+
+3 rows selected.
+
+
+SQL> commit;
+
+Commit complete.
+
+
+SQL> rollback;
+
+Rollback complete.
+
+
+SQL> select * from Student;
+
+NAME                         ROLL_NO
+------------------------- ----------
+Rohit Aggarwal                    97
+Ojassvi Chawla                    77
+Prateek Varshney                  84
+
+3 rows selected.
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select * from Student
+SQL> /
+
+NAME                         ROLL_NO
+------------------------- ----------
+Rohit Aggarwal                    97
+Ojassvi Chawla                    77
+Prateek Varshney                  84
+
+3 rows selected.

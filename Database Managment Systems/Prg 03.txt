@@ -1,0 +1,185 @@
+
+SQL*Plus: Release 10.2.0.3.0 - Production on Tue Apr 7 00:05:40 2009
+
+Copyright (c) 1982, 2006, Oracle.  All Rights Reserved.
+
+Connected to:
+Oracle Database 10g Enterprise Edition Release 10.2.0.3.0 - Production
+With the Partitioning, OLAP and Data Mining options
+
+
+SQL> create table project
+  2  (
+  3  Project_code int primary key,
+  4  Project_name varchar2(25) unique not null,
+  5  Project_hour int,
+  6  Project_dept varchar2(25) default ('Systems')
+  7  );
+
+Table created.
+
+
+SQL> create table student
+  2  (
+  3  Name varchar2(25) not null,
+  4  Student_ID int primary key,
+  5  Gender char(7) check (Gender in ('Male','Female')),
+  6  Project_code int,
+  7  foreign key(Project_code) references Project(Project_code)
+  8  );
+
+Table created.
+
+
+SQL> desc project;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PROJECT_CODE                              NOT NULL NUMBER(38)
+ PROJECT_NAME                              NOT NULL VARCHAR2(25)
+ PROJECT_HOUR                                       NUMBER(38)
+ PROJECT_DEPT                                       VARCHAR2(25)
+
+
+SQL> desc student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NAME                                      NOT NULL VARCHAR2(25)
+ STUDENT_ID                                NOT NULL NUMBER(38)
+ GENDER                                             CHAR(7)
+ PROJECT_CODE                                       NUMBER(38)
+
+
+SQL> insert into project values
+  2  ('&Project_Code','&Project_Name','&Project_Hours','&Project_department');
+Enter value for project_code: 001
+Enter value for project_name: Database Converter
+Enter value for project_hours: 45
+Enter value for project_department: Database Administration
+old   2: ('&Project_Code','&Project_Name','&Project_Hours','&Project_department')
+new   2: ('001','Database Converter','45','Database Administration')
+
+1 row created.
+
+
+SQL> /
+Enter value for project_code: 002
+Enter value for project_name: Antivirus
+Enter value for project_hours: 40
+Enter value for project_department: 
+old   2: ('&Project_Code','&Project_Name','&Project_Hours','&Project_department')
+new   2: ('002','Antivirus','40','Systems')
+
+1 row created.
+
+
+SQL> /
+Enter value for project_code: 003
+Enter value for project_name: Application Interface
+Enter value for project_hours: 60
+Enter value for project_department: Application Management
+old   2:  ('&Project_Code','&Project_Name','&Project_Hours','&Project_department')
+new   2:  ('003','Application Interface','60','Application Management')
+
+1 row created.
+
+
+SQL> select * from project;
+
+PROJECT_CODE PROJECT_NAME              PROJECT_HOUR PROJECT_DEPT
+------------ ------------------------- ------------ -------------------------
+           1 Database Converter                  45 Database Administration
+           2 Antivirus                           40 Systems
+           3 Application Interface               60 Application Management
+
+
+SQL> insert into project values (002,null,40,'Systems');
+insert into project values (002,null,40,'Systems')
+                                *
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("SYSTEM"."PROJECT"."PROJECT_NAME")
+
+
+SQL> insert into project values (002,'Website Deployment',25,'Website Maintenance');
+insert into project values (002,'Website Deployment',25,'Website Maintenance')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (SYSTEM.SYS_C005483) violated
+
+
+SQL> insert into student values
+  2  ('&Name','&Student_ID','&Gender','&Project_code');
+Enter value for name: Rohit Aggarwal
+Enter value for student_id: 001
+Enter value for gender: Male
+Enter value for project_code: 003
+old   2: ('&Name','&Student_ID','&Gender','&Project_code')
+new   2: ('Rohit Aggarwal','001','Male','003')
+
+1 row created.
+
+
+SQL> /
+Enter value for name: Prateek Varshney
+Enter value for student_id: 002
+Enter value for gender: Male
+Enter value for project_code: 003
+old   2: ('&Name','&Student_ID','&Gender','&Project_code')
+new   2: ('Prateek Varshney','002','Male','003')
+
+1 row created.
+
+
+SQL> /
+Enter value for name: Priyanka Chauhan
+Enter value for student_id: 003
+Enter value for gender: Female
+Enter value for project_code: 002
+old   2: ('&Name','&Student_ID','&Gender','&Project_code')
+new   2: ('Priyanka Chauhan','003','Female','002')
+
+1 row created.
+
+
+SQL> /
+Enter value for name: Ojassvi Chawla
+Enter value for student_id: 004
+Enter value for gender: Male
+Enter value for project_code: 003
+old   2: ('&Name','&Student_ID','&Gender','&Project_code')
+new   2: ('Ojassvi Chawla','004','Male','003')
+
+1 row created.
+
+
+SQL> select * from student;
+
+NAME                      STUDENT_ID GENDER  PROJECT_CODE
+------------------------- ---------- ------- ------------
+Rohit Aggarwal                     1 Male               3
+Prateek Varshney                   2 Male               3
+Priyanka Chauhan                   3 Female             2
+Ojassvi Chawla                     4 Male               3
+
+4 rows selected.
+
+
+SQL> insert into student values ('Chetan',002,'Male',006);
+insert into student values ('Chetan',002,'Male',006)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (SYSTEM.SYS_C005487) violated
+
+
+SQL> insert into student values ('Chetan',005,'Male',007);
+insert into student values ('Chetan',005,'Male',007)
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (SYSTEM.SYS_C005488) violated - parent key not
+found
+
+
+SQL> insert into student values ('Chetan',005,'M',001);
+insert into student values ('Chetan',005,'M',001)
+*
+ERROR at line 1:
+ORA-02290: check constraint (SYSTEM.SYS_C005486) violated

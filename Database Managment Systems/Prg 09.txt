@@ -1,0 +1,77 @@
+
+SQL*Plus: Release 10.2.0.3.0 - Production on Sun Apr 26 12:32:45 2009
+
+Copyright (c) 1982, 2006, Oracle.  All Rights Reserved.
+
+Connected to:
+Oracle Database 10g Enterprise Edition Release 10.2.0.3.0 - Production
+With the Partitioning, OLAP and Data Mining options
+
+
+SQL> create function add_new(x in number,y in number,z out number)
+  2  return number
+  3  is
+  4  begin
+  5  z:=x+y;
+  6  return z;
+  7  end;
+  8  /
+
+Function created.
+
+
+SQL> declare x number;
+  2  y number;
+  3  z number;
+  4  begin
+  5  x:='&x';
+  6  y:='&y';
+  7  z:=add_new(x,y,z);
+  8  dbms_output.put_line(x||' + '||y||' = '||z);
+  9  end;
+ 10  /
+Enter value for x: 7
+old   5: x:='&x';
+new   5: x:='7';
+Enter value for y: 9
+old   6: y:='&y';
+new   6: y:='9';
+7 + 9 = 16
+
+PL/SQL procedure successfully completed.
+
+
+SQL> /
+Enter value for x: 19
+old   5: x:='&x';
+new   5: x:='19';
+Enter value for y: 38
+old   6: y:='&y';
+new   6: y:='38';
+19 + 38 = 57
+
+PL/SQL procedure successfully completed.
+
+
+SQL> /
+Enter value for x: 28
+old   5: x:='&x';
+new   5: x:='28';
+Enter value for y: 76
+old   6: y:='&y';
+new   6: y:='76';
+28 + 76 = 104
+
+PL/SQL procedure successfully completed.
+
+
+SQL> /
+Enter value for x: 101
+old   5: x:='&x';
+new   5: x:='101';
+Enter value for y: 254
+old   6: y:='&y';
+new   6: y:='254';
+101 + 254 = 355
+
+PL/SQL procedure successfully completed.

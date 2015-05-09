@@ -1,0 +1,181 @@
+
+SQL*Plus: Release 10.2.0.3.0 - Production on Sun Apr 26 12:32:45 2009
+
+Copyright (c) 1982, 2006, Oracle.  All Rights Reserved.
+
+Connected to:
+Oracle Database 10g Enterprise Edition Release 10.2.0.3.0 - Production
+With the Partitioning, OLAP and Data Mining options
+
+
+SQL> select 9*7 from dual;
+
+       9*7
+----------
+        63
+
+
+SQL> select abs(-23) from dual;
+
+  ABS(-23)
+----------
+        23
+
+
+SQL> select abs(39.21) from dual;
+
+ABS(39.21)
+----------
+     39.21
+
+
+SQL> select power(4,6) from dual;
+
+POWER(4,6)
+----------
+      4096
+
+
+SQL> select sqrt(345.65) from dual;
+
+SQRT(345.65)
+------------
+  18.5916648
+
+
+SQL> select avg(Salary) "Average Salary" from Employee;
+
+Average Salary
+--------------
+         18500
+
+
+SQL> select min(Salary) "Minimum Salary" from Employee;
+
+Minimum Salary
+--------------
+         15000
+
+
+SQL> select max(Salary) "Maximum Salary" from Employee;
+
+Maximum Salary
+--------------
+         20000
+
+
+SQL> select lower(Name) "Name" from Employee;
+
+Name
+-------------------------
+rohit aggarwal
+prateek varshney
+ojassvi chawla
+parth garg
+arpit jain
+ishan banga
+keshav yadav
+shivansh sharma
+ankit sharma
+anuj trisal
+vinay garg
+paras gera
+nitin aggarwal
+chandan jha
+kamal nanda
+nitin bhatia
+jatin sachdeva
+
+17 rows selected.
+
+
+SQL> select upper(Name) "Name" from Employee;
+
+Name
+-------------------------
+ROHIT AGGARWAL
+PRATEEK VARSHNEY
+OJASSVI CHAWLA
+PARTH GARG
+ARPIT JAIN
+ISHAN BANGA
+KESHAV YADAV
+SHIVANSH SHARMA
+ANKIT SHARMA
+ANUJ TRISAL
+VINAY GARG
+PARAS GERA
+NITIN AGGARWAL
+CHANDAN JHA
+KAMAL NANDA
+NITIN BHATIA
+JATIN SACHDEVA
+
+17 rows selected.
+
+
+SQL> select length('My name is Rohit Aggarwal') from dual;
+
+LENGTH('MYNAMEISROHITAGGARWAL')
+-------------------------------
+                             25
+
+
+SQL> select lpad('Rohit',10) from dual;
+
+LPAD(
+----------
+     Rohit
+
+
+SQL> select rpad('Rohit',10) from dual;
+
+RPAD(
+----------
+Rohit
+
+
+SQL> select ltrim('Rohit','R') from dual;
+
+LTRIM(
+------
+ohit
+
+
+SQL> select rtrim('Rohit','it') from dual;
+
+RTRIM(
+------
+Roh
+
+
+SQL> select substr('Rohit Aggarwal',1,5) from dual;
+
+SUBSTR(
+-------
+Rohit
+
+
+SQL> select initcap('rohit aggarwal') from dual;
+
+INITCAP(
+--------------
+Rohit Aggarwal
+
+
+SQL> select * from Employee where Name like 'P%';
+
+NAME                          SALARY
+------------------------- ----------
+Prateek Varshney               19000
+Parth Garg                     19500
+Paras Gera                     19500
+
+
+SQL> select * from Employee where Salary like '18%';
+
+NAME                          SALARY
+------------------------- ----------
+Ishan Banga                    18000
+Nitin Aggarwal                 18500
+Chandan Jha                    18500

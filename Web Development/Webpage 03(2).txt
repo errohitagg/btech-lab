@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Webpage 03(Internal Style Sheet)</title>
+<style>
+h5 {background-color:gray}
+h4 {text-align:center}
+h3 {text-transform:capitalize}
+h1 {font-style:italic}
+font {font-family:arial; font-size:15; color:white; background-color:black}
+table {text-decoration:line-through; border-style:groove; table-layout:auto}
+td {font-size:15; color:red}
+div {text-decoration:line-through; border-style:dashed; font-family:fantasy}
+p {font-family:monospace; background-color:lime; position:60%; font-size:25}
+ol {list-style-type:decimal-leading-zero; list-style-position:outside}
+a {font-variant:small-caps; text-align:center; font-style:oblique; text-indent:30}
+</style>
+</head>
+<body>
+<h2><center>Internal Cascading Style Sheet</center></h2>
+<h5>This text is written in gray background.</h5>
+<h4>This text is written in the center of the page.</h4>
+<h3>This text has been transformed to Uppercase.</h3>
+<h1>This text is written in italics style.</h1>
+<font>This text is written in arial font face, white color on a black background.</font>
+<br><br>The following table has a line through each element
+<table>
+<tr>
+<td>First
+<td>Second
+<tr>
+<td>Third
+<td>Fourth
+</table>
+<br>
+<div>This division is having line through text in fantasy generic font face.</div>
+<p>This text is written in monospace generic font face with lime background.</p>
+The following is an ordered list
+<ol>
+<li>First
+<li>Second
+<li>Third
+<li>Fourth
+</ol>
+<a href="Webpage 03(1).html">This hyperlink is in oblique font style.</a>
+</html>
