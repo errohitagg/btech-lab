@@ -3,5 +3,7 @@
 *.class
 *.log
 *_log
+*.prj
+*.vho
 *compile/
 *projnav*/

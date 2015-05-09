@@ -1,0 +1,95 @@
+$WAVE4
+$RESOLUTION 1000
+$ENDTIME 600000
+I 1 "e#3#bitc2 01"
+$IN 1 1 clr
+$IN 2 1 pr
+$OUT 3 1 y
+$IN 4 1 d
+$IN 5 1 clk
+P 0 1-5 CS "0"
+P 0 5 Stimulator "CLK:FRM:Override:100.000000;2;1;0;50;1:Clock:1:"
+P 0 1 2 4 Stimulator "VAL:FRM:Override:1:<= 1:1:"
+$WAVES 1
+=0 T 0
+=1 D 100k 1
+*1
+*1
+$VALUES
+V 1
+0
+V 1
+1
+V 1
+0
+V 1
+1
+$END
+$WAVES 2
+*0
+=2 D 200k 1
+$VALUES
+V 1
+0
+V 1
+1
+$END
+$WAVES 3
+*0
+=3 D 150k 1
+=4 D 50k 2
+=5 D 300k 1
+$VALUES
+V 1
+0
+V 1
+1
+V 1
+0
+V 1
+1
+$END
+$WAVES 4
+*0
+=6 D 400k 1
+$VALUES
+V 1
+0
+V 1
+1
+$END
+$WAVES 5
+*0
+R 1 2 =7 T 50k
+*7
+*7
+*7
+*7
+*7
+*7
+*7
+*7
+*7
+*7
+$VALUES
+V 3
+0
+1
+0
+V 2
+1
+0
+V 2
+1
+0
+V 2
+1
+0
+V 2
+1
+0
+V 2
+1
+0
+$END
+$ENDWAVE

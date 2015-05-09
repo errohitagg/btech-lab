@@ -1,0 +1,86 @@
+$WAVE4
+$RESOLUTION 1000
+$ENDTIME 1100000
+I 1 "e#9#std_logicc9 UX01ZWLH-"
+$IN 1 1 clr
+$IN 2 1 clk
+$IN 3 1 updown
+I 2 "a#28#std_logic_vector(3 downto 0)1 ricd3 0 e#9#std_logicc9 UX01ZWLH-"
+$BUS OUT 4 2 4 count
+$SC 5-8
+P 0 1-8 CS "0"
+P 0 2 Stimulator "CLK:FRM:Override:100.000000;2;1;0;50;1:Clock:1:"
+P 0 1 3 Stimulator "VAL:FRM:Override:0:<= 0:1:"
+$WAVES 1
+=0 T 0
+=1 D 100k 1
+$VALUES
+V 2
+1
+0
+$END
+$WAVES 2
+*0
+R 1 22 =2 T 50k
+$VALUES
+R 2 11 0 1
+V 1
+0
+$END
+$WAVES 3
+*0
+*1
+=3 D 400k 1
+*1
+=4 D 300k 1
+$VALUES
+R 2 2 0 1
+V 1
+0
+$END
+$WAVES 5
+*0
+=5 D 0 2
+$VALUES
+V 2
+U
+0
+$END
+$WAVES 6
+*0
+*5
+=6 D 450k 2
+R 1 2 =7 D 100k 2
+$VALUES
+V 1
+U
+R 2 2 0 1
+$END
+$WAVES 7
+*0
+*5
+=8 D 250k 2
+=9 D 200k 2
+R 1 2 *7
+*9
+*7
+$VALUES
+V 1
+U
+R 2 3 0 1
+V 1
+0
+$END
+$WAVES 8
+*0
+*5
+=10 D 150k 2
+R 1 9 *7
+$VALUES
+V 1
+U
+R 2 5 0 1
+V 1
+0
+$END
+$ENDWAVE

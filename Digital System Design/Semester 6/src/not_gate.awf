@@ -1,0 +1,29 @@
+$WAVE4
+$RESOLUTION 1000
+$ENDTIME 200000
+I 1 "e#9#std_logicc9 UX01ZWLH-"
+$IN 1 1 a
+$OUT 2 1 b
+P 0 1 2 CS "0"
+P 0 1 Stimulator "VAL:FRM:Override:1:<= 1:1:"
+$WAVES 1
+=0 T 0
+=1 D 100k 1
+$VALUES
+V 1
+0
+V 1
+1
+$END
+$WAVES 2
+*0
+=2 D 0 1
+=3 D 100k 2
+$VALUES
+V 2
+U
+1
+V 1
+0
+$END
+$ENDWAVE

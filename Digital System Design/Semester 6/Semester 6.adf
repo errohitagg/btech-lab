@@ -1,0 +1,103 @@
+[Project]
+Current Flow=Multivendor
+VCS=0
+version=1
+Current Config=compile
+
+[Configurations]
+compile=Semester_6
+
+[Settings]
+LANGUAGE=VHDL
+FLOW_TYPE=HDL
+FAMILY=
+SYNTH_TOOL=<none>
+IMPL_TOOL=<none>
+FLOWTOOLS=ONLY_IMPL
+
+[$LibMap$]
+Active_lib=
+xilinxun=
+Semester_6=.
+
+[Library]
+Semester_6=.\Semester_6.LIB
+
+[IMPLEMENTATION]
+UCF=
+
+[Files]
+/and_gate.vhd=-1
+/and_gate.awf=-1
+/or_gate.vhd=-1
+/or_gate.awf=-1
+/not_gate.vhd=-1
+/not_gate.awf=-1
+/nand_gate.vhd=-1
+/nand_gate.awf=-1
+/nor_gate.vhd=-1
+/nor_gate.awf=-1
+/xor_gate.vhd=-1
+/xor_gate.awf=-1
+/half_adder.vhd=-1
+/half_adder.awf=-1
+/full_adder.vhd=-1
+/full_adder.awf=-1
+/multiplexer.vhd=-1
+/multiplexer.awf=-1
+/demultiplexer.vhd=-1
+/demultiplexer.awf=-1
+/encoder.vhd=-1
+/encoder.awf=-1
+/decoder.vhd=-1
+/decoder.awf=-1
+/comparator.vhd=-1
+/comparator.awf=-1
+/flipflop.vhd=-1
+/flipflop.awf=-1
+/converter.vhd=-1
+/code_converter.awf=-1
+/counter.vhd=-1
+/counter.awf=-1
+/shift_register.vhd=-1
+
+[Files.Data]
+.\src\and_gate.vhd=VHDL Source Code
+.\src\and_gate.awf=Waveform File
+.\src\or_gate.vhd=VHDL Source Code
+.\src\or_gate.awf=Waveform File
+.\src\not_gate.vhd=VHDL Source Code
+.\src\not_gate.awf=Waveform File
+.\src\nand_gate.vhd=VHDL Source Code
+.\src\nand_gate.awf=Waveform File
+.\src\nor_gate.vhd=VHDL Source Code
+.\src\nor_gate.awf=Waveform File
+.\src\xor_gate.vhd=VHDL Source Code
+.\src\xor_gate.awf=Waveform File
+.\src\half_adder.vhd=VHDL Source Code
+.\src\half_adder.awf=Waveform File
+.\src\full_adder.vhd=VHDL Source Code
+.\src\full_adder.awf=Waveform File
+.\src\multiplexer.vhd=VHDL Source Code
+.\src\multiplexer.awf=Waveform File
+.\src\demultiplexer.vhd=VHDL Source Code
+.\src\demultiplexer.awf=Waveform File
+.\src\encoder.vhd=VHDL Source Code
+.\src\encoder.awf=Waveform File
+.\src\decoder.vhd=VHDL Source Code
+.\src\decoder.awf=Waveform File
+.\src\comparator.vhd=VHDL Source Code
+.\src\comparator.awf=Waveform File
+.\src\flipflop.vhd=VHDL Source Code
+.\src\flipflop.awf=Waveform File
+.\src\converter.vhd=VHDL Source Code
+.\src\code_converter.awf=Waveform File
+.\src\counter.vhd=VHDL Source Code
+.\src\counter.awf=Waveform File
+.\src\shift_register.vhd=VHDL Source Code
+
+[HierarchyViewer]
+HierarchyInformation=converter|converter|0 counter|counter|0 
+ShowHide=ShowTopLevel
+Selected=
+
